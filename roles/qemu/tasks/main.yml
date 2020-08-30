@@ -1,5 +1,5 @@
 - name: Install QEMU and dependencies
-  shell: make +qemu +seabios-bin +pulseaudio-libs +libiscsi && make install
+  shell: make +qemu +seabios-bin +pulseaudio-libs +libiscsi +genisoimage && make install
   args:
     chdir: "{{ user_yum_dir }}"
     creates: "{{ user_yum_root_dir }}/usr/bin/qemu-system-i386"

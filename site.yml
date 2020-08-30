@@ -5,6 +5,7 @@
     user_bin: "{{ ansible_env.HOME }}/bin"
     user_yum_dir: "{{ ansible_env.HOME }}/user-yum.sh"
     user_yum_root_dir: "{{ ansible_env.HOME }}/user-yum.sh/root"
+    user_yum_bin_path: "{{ ansible_env.HOME }}/user-yum.sh/root/usr/bin"
     user_service_dir: "{{ ansible_env.HOME }}/etc/services.d"
     brew_bin_path: "{{ ansible_env.HOME }}/.linuxbrew/bin"
     brew_executable: "{{ ansible_env.HOME }}/.linuxbrew/bin/brew"
