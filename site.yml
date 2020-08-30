@@ -1,0 +1,33 @@
+- hosts:
+    - win311.aaron.cc
+  vars:
+    user_home: "{{ ansible_env.HOME }}"
+    user_bin: "{{ ansible_env.HOME }}/bin"
+    user_yum_dir: "{{ ansible_env.HOME }}/user-yum.sh"
+    user_yum_root_dir: "{{ ansible_env.HOME }}/user-yum.sh/root"
+    user_service_dir: "{{ ansible_env.HOME }}/etc/services.d"
+    brew_bin_path: "{{ ansible_env.HOME }}/.linuxbrew/bin"
+    brew_executable: "{{ ansible_env.HOME }}/.linuxbrew/bin/brew"
+    brew_etc_path: "{{ ansible_env.HOME }}/.linuxbrew/etc"
+    vm_inner_port: 80
+    vm_outer_port: 10080
+    local_nginx_port: 8080
+  vars_prompt:
+    - name: local_drive_c_img
+      prompt: "Specify the local path to c.img that should be uploaded to the server"
+      private: no
+  roles:
+    - role: homebrew
+      tags: [ 'homebrew' ]
+    - role: user-yum
+      tags: [ 'user-yum' ]
+    - role: qemu
+      tags: [ 'qemu' ]
+    - role: win311
+      tags: [ 'win311' ]
+      inner_port: "{{ vm_inner_port }}"
+      outer_port: "{{ vm_outer_port }}"
+    - role: local-nginx
+      tags: [ 'local-nginx' ]
+      backend_port: "{{ vm_outer_port }}"
+      server_port: "{{ local_nginx_port }}"

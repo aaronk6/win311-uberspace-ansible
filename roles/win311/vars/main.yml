@@ -1,0 +1,7 @@
+directory: "{{ user_home }}/win311"
+vm_memory_mb: 16
+vnc_display: 1
+outer_port: 10080
+inner_port: 80
+drive_c_img_name: c.img
+local_drive_c_img:

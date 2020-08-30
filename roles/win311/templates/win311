@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+cd {{ user_home }}/win311
+
+{{ user_bin }}/qemu-system-i386 \
+    -hda {{ drive_c_img_name }} \
+    -boot c \
+    -cpu pentium \
+    -rtc base=localtime,clock=rt,driftfix=slew \
+    -m {{ vm_memory_mb }} \
+    -vnc :{{ vnc_display}} \
+    -net nic,model=pcnet -net user,hostfwd=tcp::{{ outer_port }}-:{{ inner_port }}
+
+# optional: -cdrom software.iso
