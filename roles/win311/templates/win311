@@ -2,10 +2,10 @@
 
 set -e
 
-cd {{ user_home }}/win311
+cp "{{ drive_c_img_name }}" "{{ drive_c_active_img_name }}"
 
 {{ user_bin }}/qemu-system-i386 \
-    -hda {{ drive_c_img_name }} \
+    -hda "{{ drive_c_active_img_name }}" \
     -boot c \
     -cpu pentium \
     -rtc base=localtime,clock=rt,driftfix=slew \

@@ -3,3 +3,6 @@
 
 - name: supervisorctl update
   command: supervisorctl update
+
+- name: restart win311
+  command: supervisorctl restart win311

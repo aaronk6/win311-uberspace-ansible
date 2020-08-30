@@ -3,9 +3,13 @@
 
 - name: Upload image for drive C
   copy: src={{ local_drive_c_img }} dest={{ directory }}/{{ drive_c_img_name }} mode=0660
+  notify:
+    - restart win311
 
 - name: Install wrapper script
   template: src=win311 dest={{ user_bin }} mode=0770
+  notify:
+    - restart win311
 
 - name: Install service
   template: src=win311.ini dest={{ user_service_dir }} mode=0660
