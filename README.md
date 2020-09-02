@@ -1,6 +1,6 @@
 # Ansible Playbook: Windows 3.11 on Uberspace
 
-This playbook will set up an Uberspace to host a Windows 3.11 VM running a webserver on port 80 and make it available behind a per-user NGINX service. QEMU will be used for virtualization.
+This playbook will set up an Uberspace to host a Windows 3.11 VM running a web server on port 80 and make it available behind a per-user NGINX service. QEMU will be used for virtualization.
 
 **You will need to provide your own HDD image for the VM.** It’s not included here, but the playbook will upload it for you if you specify the path.
 
