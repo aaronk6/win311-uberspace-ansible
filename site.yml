@@ -1,5 +1,4 @@
-- hosts:
-    - win311.aaron.cc
+- hosts: uberspace
   vars:
     user_home: "{{ ansible_env.HOME }}"
     user_bin: "{{ ansible_env.HOME }}/bin"
