@@ -4,6 +4,5 @@ vnc_display: 1
 outer_port: 10080
 inner_port: 80
 drive_c_img_name: c.img
-drive_c_active_img_name: c_active.img
 htdocs_iso_name: htdocs.iso
 local_drive_c_img:
