@@ -15,7 +15,7 @@ cp "{{ drive_c_img_name }}" "{{ drive_c_active_img_name }}"
     -cdrom {{ htdocs_iso_name }} \
     -boot c \
     -cpu pentium \
-    -rtc base=localtime,clock=rt,driftfix=slew \
+    -rtc base=localtime \
     -m {{ vm_memory_mb }} \
     -vnc :{{ vnc_display}} \
     -net nic,model=pcnet -net user,hostfwd=tcp::{{ outer_port }}-:{{ inner_port }}
