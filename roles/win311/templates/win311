@@ -16,4 +16,5 @@ echo "Create ISO image from web root"
     -rtc base=localtime \
     -m {{ vm_memory_mb }} \
     -vnc :{{ vnc_display}} \
+    -monitor telnet:127.0.0.1:{{ qemu_monitor_telnet_port }},server,nowait \
     -net nic,model=pcnet -net user,hostfwd=tcp::{{ outer_port }}-:{{ inner_port }}

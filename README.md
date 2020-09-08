@@ -30,3 +30,24 @@ Then use a local VNC client to connect to `localhost:5901`. On macOS, this works
 
 **Warning:** The mouse cursor won’t work properly—but with some practicing, you can manage. For newer operating systems, this can be fixed by adding `-usbdevice tablet` to the QEMU command line, but this requires USB support in the guest which Windows 3.11 obviously doesn’t have.
 
+## Telnet to QEMU Monitor
+
+Use this for comitting changes to `c.img`. By default, changes are discarded on exit (snapshot mode).
+
+```
+ssh -L 4444:localhost:4444 win311.example.com
+```
+
+Then locally:
+
+```
+telnet localhost 4444
+commit ide0-hd0
+```
+
+Download image:
+
+```
+scp win311.example.cc:win311/c.img .
+```
+
