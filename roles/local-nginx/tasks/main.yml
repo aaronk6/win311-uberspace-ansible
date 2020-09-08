@@ -1,6 +1,5 @@
-- name: Install nginx-full with "headers more" module
-  # see https://stackoverflow.com/a/49898780/1387396
-  shell: "{{ brew_executable }} tap denji/nginx && {{ brew_executable }} install nginx-full --with-headers-more-module"
+- name: Install nginx
+  shell: "{{ brew_executable }} install nginx"
   args:
     creates: "{{ brew_bin_path }}/nginx"
 
