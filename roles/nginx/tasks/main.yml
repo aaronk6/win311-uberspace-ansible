@@ -24,12 +24,12 @@
   template: src=proxy.conf dest={{ user_yum_etc_path }}/nginx/conf.d/proxy.conf mode=0660
   notify: restart nginx
 
-# - block:
-#     - set_fact:
-#         search_string: "/ http:{{ server_port }} => OK"
-#     - command: uberspace web backend list
-#       register: res
-#       changed_when: false
-#     - name: Set up Uberspace web backend
-#       command: uberspace web backend set / --http --port {{ server_port }}
-#       when: not res.stdout is search(search_string)
+- block:
+    - set_fact:
+        search_string: "/ http:{{ server_port }} => OK"
+    - command: uberspace web backend list
+      register: res
+      changed_when: false
+    - name: Set up Uberspace web backend
+      command: uberspace web backend set / --http --port {{ server_port }}
+      when: not res.stdout is search(search_string)
